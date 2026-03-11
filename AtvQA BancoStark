@@ -1,0 +1,93 @@
+Template — Caso de Teste 1
+ID: CT-001
+Título/Objetivo: Verificar depósito com valor zero
+Pré-condição: Verificar se há contas criadas
+Passos:
+
+Chamar função
+Verificar saldo
+Resultado esperado: Mensagem de erro pois não é possivel depósitar valor 0
+Resultado obtido: Depósito com valor 0 efetuado
+Status (Pass/Fail): Fail
+Evidência: Teste N1 - Depósito com valor zero OK - Depósito realizado: 0
+
+Template — Caso de Teste 2
+ID: CT-002
+Título/Objetivo: Verificar tentativa de saque acima do saldo
+Pré-condição: Há saldo suficiente na conta Passos:
+
+Verificar se a saldo disponivel na conta
+Realizar um saque com valor acima do saldo disponível
+Resultado esperado: Impedimento do saque na conta
+Resultado obtido: Sistema não deixou sacar e deu mensagem de erro
+Status (Pass/Fail): Pass
+Evidência: Teste N3 - Saque acima do saldo ERRO - Saldo insuficiente
+
+Template — Caso de Teste 3
+ID: CT-003
+Título/Objetivo: Verificar depósito com valor negativo
+Pré-condição: Verificar contas criadas
+Passos:
+
+Consultar saldo atual
+Realizar um depósito com valor negativo
+Resultado esperado: Bloquear depósito negativo e mostrar mensagem de erro
+Resultado obtido: Depósito negativo realizado
+Status (Pass/Fail): Fail
+Evidência: Teste N2 - Depósito negativo OK - Depósito realizado: -100
+
+PARTE 05 — Bug Report (atividade)
+
+Template — Bug Report
+Título: Sistema aceita depósito com valor 0
+Severidade (Baixa/Média/Alta): Média
+Prioridade (Baixa/Média/Alta): Alta
+Ambiente: Google Colab / Python 3.x / Banco do Stark
+
+Descrição: O sistema está aceitando depósitos com valor 0, o que não deveria ser permitido.
+
+Passos para reproduzir:
+
+Criar uma conta no sistema
+Chamar função e realizar um depósito com o valor 0
+Verificar resultado obtido
+Resultado esperado: O sistema deve rejeitar o depósito com valor 0 e retornar uma mensagem de erro.
+Resultado obtido: O depósito com valor 0 foi aceito e registrado no sistema.
+Evidência: Teste N1 - Depósito com valor zero OK - Depósito realizado: 0
+Impacto/Risco: Esse bug pode permitir que o saldo da conta seja manipulado indevidamente, comprometendo a integridade dos dados financeiros.
+
+Template — Bug Report 2
+Título: Sistema aceita depósito com valor negativo
+Severidade (Baixa/Média/Alta): Alta
+Prioridade (Baixa/Média/Alta): Alta
+Ambiente: Google Colab / Python 3.x / Banco do Stark
+
+Descrição: O sistema está aceitando depósitos com valor negativo, o que não deveria ser permitido.
+
+Passos para reproduzir:
+
+Criar uma conta no sistema
+Chamar função e realizar um depósito com valor negativo
+Verificar valor obtido
+Resultado esperado: O sistema deve rejeitar o depósito com valor negativo e retornar uma mensagem de erro.
+Resultado obtido: O depósito com valor negativo foi aceito e registrado no sistema.
+Evidência: Teste N2 - Depósito negativo OK - Depósito realizado: -100
+Impacto/Risco: Esse bug pode permitir que o saldo da conta seja manipulado indevidamente, comprometendo a integridade dos dados financeiros.
+
+Template — Bug Report 3
+Título: Sistema bloqueia saque acima do saldo
+Severidade (Baixa/Média/Alta): Baixa
+Prioridade (Baixa/Média/Alta): Baixa
+Ambiente: Google Colab / Python 3.x / Banco do Stark
+
+Descrição: O sistema bloqueaia saques com valor acima do saldo disponível na conta.
+
+Passos para reproduzir:
+
+Criar uma conta no sistema
+Verificar saldo disponível
+Tentar sacar um valor acima do saldo disponível
+Resultado esperado: O sistema deve retornar uma mensagem de erro informando que o saldo é insuficiente para realizar o saque.
+Resultado obtido: O sistema não permitiu o saque, retornando um erro de "Saldo insuficiente".
+Evidência: Teste N3 - Saque acima do saldo ERRO - Saldo insuficiente
+Impacto/Risco: Caso o teste não funcionasse e desse para sacar acima do saldo teria um impacto muito grande na integridade dos dados financeiros e manipulação do saldo em conta
